@@ -172,4 +172,17 @@ public class Library {
         }
         return null;
     }
+    public List<BookLend> findLendsByIsbn(String isbn){
+        List<BookLend> result=new ArrayList<>();
+        if(booksByIsbn.containsKey(isbn)){
+            for(BookLend bookLend: bookLends){
+                if(bookLend.getIsbn().equals(isbn)){
+                    result.add(bookLend);
+                }
+            }
+            return result;
+        }else {
+            return null;
+        }
+    }
 }
